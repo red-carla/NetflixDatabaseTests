@@ -1,10 +1,13 @@
 # NetflixDatabaseTests
 
+Database Creation files can be found in the folder DBCreation: 
+
 Please run the SQL file to create the netflixDB database in MSSQL (I used MSSQL 20)
 
 Please import the Mongo collections into a database named 'netflixDB' in Mongo Compass
 
 EF database will be created on running the solution
+
 
 The connection strings should work as is
 
