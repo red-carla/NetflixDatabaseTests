@@ -1,0 +1,24 @@
+[{
+  "_id": {
+    "$oid": "66263c575b4dc00e57fcc31d"
+  },
+  "price": 7.99,
+  "sub_name": "basic",
+  "type": "subscription"
+},
+{
+  "_id": {
+    "$oid": "66263c575b4dc00e57fcc31e"
+  },
+  "price": 9.99,
+  "sub_name": "standard",
+  "type": "subscription"
+},
+{
+  "_id": {
+    "$oid": "66263c575b4dc00e57fcc31f"
+  },
+  "price": 11.99,
+  "sub_name": "premium",
+  "type": "subscription"
+}]
