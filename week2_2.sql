@@ -1,0 +1,102 @@
+USE netflixCarla;
+
+CREATE LOGIN matt_smith WITH PASSWORD = '0000';
+CREATE LOGIN mick_worry WITH PASSWORD = '0000';
+CREATE LOGIN adam_verogue WITH PASSWORD = '0000';
+CREATE LOGIN tim_snapps WITH PASSWORD = '0000';
+CREATE LOGIN netflix_application WITH PASSWORD = '0000';
+
+USE netflixCarla;
+CREATE USER matt_smith FOR LOGIN matt_smith;
+CREATE USER mick_worry FOR LOGIN mick_worry;
+CREATE USER adam_verogue FOR LOGIN adam_verogue;
+CREATE USER tim_snapps FOR LOGIN tim_snapps;
+CREATE USER netflix_application FOR LOGIN netflix_application;
+
+CREATE ROLE server_admin_account AUTHORIZATION dbo;
+CREATE ROLE chief_data_analyst AUTHORIZATION dbo;
+CREATE ROLE data_analyst AUTHORIZATION dbo;
+CREATE ROLE junior_data_analyst AUTHORIZATION dbo;
+CREATE ROLE account AUTHORIZATION dbo;
+
+ALTER ROLE chief_data_analyst ADD MEMBER matt_smith;
+ALTER ROLE data_analyst ADD MEMBER mick_worry;
+ALTER ROLE data_analyst ADD MEMBER adam_verogue;
+ALTER ROLE junior_data_analyst ADD MEMBER tim_snapps;
+ALTER ROLE account ADD MEMBER netflix_application;
+
+USE netflixCarla;
+GRANT SELECT, DELETE, UPDATE, INSERT, ALTER ON dbo.continue_watching TO chief_data_analyst;
+GRANT SELECT, DELETE, UPDATE, INSERT, ALTER ON dbo.discount TO chief_data_analyst;
+GRANT SELECT, DELETE, UPDATE, INSERT, ALTER ON dbo.episodes TO chief_data_analyst;
+GRANT SELECT, DELETE, UPDATE, INSERT, ALTER ON dbo.genres TO chief_data_analyst;
+GRANT SELECT, DELETE, UPDATE, INSERT, ALTER ON dbo.license TO chief_data_analyst;
+GRANT SELECT, DELETE, UPDATE, INSERT, ALTER ON dbo.license_validity TO chief_data_analyst;
+GRANT SELECT, DELETE, UPDATE, INSERT, ALTER ON dbo.movie TO chief_data_analyst;
+GRANT SELECT, DELETE, UPDATE, INSERT, ALTER ON dbo.movie_genres TO chief_data_analyst;
+GRANT SELECT, DELETE, UPDATE, INSERT, ALTER ON dbo.watch_history TO chief_data_analyst;
+GRANT SELECT, DELETE, UPDATE, INSERT, ALTER ON dbo.profile TO chief_data_analyst;
+GRANT SELECT, DELETE, UPDATE, INSERT, ALTER ON dbo.quality TO chief_data_analyst;
+GRANT SELECT, DELETE, UPDATE, INSERT, ALTER ON dbo.season TO chief_data_analyst;
+GRANT SELECT, DELETE, UPDATE, INSERT, ALTER ON dbo.series TO chief_data_analyst;
+GRANT SELECT, DELETE, UPDATE, INSERT, ALTER ON dbo.series_genres TO chief_data_analyst;
+GRANT SELECT, DELETE, UPDATE, INSERT, ALTER ON dbo.subtitles TO chief_data_analyst;
+GRANT SELECT, DELETE, UPDATE, INSERT, ALTER ON dbo.user TO chief_data_analyst;
+GRANT SELECT, DELETE, UPDATE, INSERT, ALTER ON dbo.view_classification TO chief_data_analyst;
+
+USE netflixCarla;
+GRANT SELECT ON dbo.continue_watching TO data_analyst;
+GRANT SELECT ON dbo.discount TO data_analyst;
+GRANT SELECT ON dbo.episodes TO data_analyst;
+GRANT SELECT ON dbo.genres TO data_analyst;
+GRANT SELECT ON dbo.license TO data_analyst;
+GRANT SELECT ON dbo.license_validity TO data_analyst;
+GRANT SELECT ON dbo.movie TO data_analyst;
+GRANT SELECT ON dbo.movie_genres TO data_analyst;
+GRANT SELECT ON dbo.watch_history TO data_analyst;
+GRANT SELECT ON dbo.profile TO data_analyst;
+GRANT SELECT ON dbo.quality TO data_analyst;
+GRANT SELECT ON dbo.season TO data_analyst;
+GRANT SELECT ON dbo.series TO data_analyst;
+GRANT SELECT ON dbo.series_genres TO data_analyst;
+GRANT SELECT ON dbo.subtitles TO data_analyst;
+GRANT SELECT ON dbo.user TO data_analyst;
+GRANT SELECT ON dbo.view_classification TO data_analyst;
+
+DENY DELETE, UPDATE, INSERT, ALTER ON dbo.continue_watching TO data_analyst;
+DENY DELETE, UPDATE, INSERT, ALTER ON dbo.discount TO data_analyst;
+DENY DELETE, UPDATE, INSERT, ALTER ON dbo.episodes TO data_analyst;
+DENY DELETE, UPDATE, INSERT, ALTER ON dbo.genres TO data_analyst;
+DENY DELETE, UPDATE, INSERT, ALTER ON dbo.license TO data_analyst;
+DENY DELETE, UPDATE, INSERT, ALTER ON dbo.license_validity TO data_analyst;
+DENY DELETE, UPDATE, INSERT, ALTER ON dbo.movie TO data_analyst;
+DENY DELETE, UPDATE, INSERT, ALTER ON dbo.movie_genres TO data_analyst;
+DENY DELETE, UPDATE, INSERT, ALTER ON dbo.watch_history TO data_analyst;
+DENY DELETE, UPDATE, INSERT, ALTER ON dbo.profile TO data_analyst;
+DENY DELETE, UPDATE, INSERT, ALTER ON dbo.quality TO data_analyst;
+DENY DELETE, UPDATE, INSERT, ALTER ON dbo.season TO data_analyst;
+DENY DELETE, UPDATE, INSERT, ALTER ON dbo.series TO data_analyst;
+DENY DELETE, UPDATE, INSERT, ALTER ON dbo.series_genres TO data_analyst;
+DENY DELETE, UPDATE, INSERT, ALTER ON dbo.subtitles TO data_analyst;
+DENY DELETE, UPDATE, INSERT, ALTER ON dbo.user TO data_analyst;
+DENY DELETE, UPDATE, INSERT, ALTER ON dbo.view_classification TO data_analyst;
+
+GRANT SELECT ON dbo.continue_watching TO junior_data_analyst;
+GRANT SELECT ON dbo.episodes TO junior_data_analyst;
+GRANT SELECT ON dbo.genres TO junior_data_analyst;
+GRANT SELECT ON dbo.movie TO junior_data_analyst;
+GRANT SELECT ON dbo.movie_genres TO junior_data_analyst;
+GRANT SELECT ON dbo.watch_history TO junior_data_analyst;
+GRANT SELECT ON dbo.season TO junior_data_analyst;
+GRANT SELECT ON dbo.series TO junior_data_analyst;
+GRANT SELECT ON dbo.series_genres TO junior_data_analyst;
+GRANT SELECT ON dbo.subtitles TO junior_data_analyst;
+GRANT SELECT ON dbo.user TO junior_data_analyst;
+GRANT SELECT ON dbo.view_classification TO junior_data_analyst;
+
+DENY SELECT, DELETE, UPDATE, INSERT, ALTER ON dbo.license TO junior_data_analyst;
+DENY SELECT, DELETE, UPDATE, INSERT, ALTER ON dbo.discount TO junior_data_analyst;
+DENY SELECT, DELETE, UPDATE, INSERT, ALTER ON dbo.license_validity TO junior_data_analyst;
+DENY SELECT, DELETE, UPDATE, INSERT, ALTER ON dbo.quality TO junior_data_analyst;
+DENY SELECT, DELETE, UPDATE, INSERT, ALTER ON dbo.profile TO junior_data_analyst;
+DENY SELECT, DELETE, UPDATE, INSERT, ALTER ON dbo.user TO junior_data_analyst;
